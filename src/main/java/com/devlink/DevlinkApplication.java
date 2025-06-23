@@ -1,6 +1,8 @@
 package com.devlink;
 
+import com.devlink.domain.Company;
 import com.devlink.domain.User;
+import com.devlink.repository.CompanyRepository;
 import com.devlink.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,18 +15,6 @@ public class DevlinkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DevlinkApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner runner(UserRepository userRepository) {
-		return args -> {
-			if (!userRepository.existsByEmail("test@example.com")) {
-				userRepository.save(User.builder()
-						.username("테스트유저")
-						.email("test@example.com")
-						.password("1234") // 나중에 암호화 예정
-						.role(User.Role.ROLE_USER)
-						.build());
-			}
-		};
-	}
+
 
 }
