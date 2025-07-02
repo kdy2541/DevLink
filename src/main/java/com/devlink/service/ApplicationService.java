@@ -10,6 +10,8 @@ import com.devlink.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ApplicationService {
@@ -32,5 +34,13 @@ public class ApplicationService {
                 .build();
 
         return applicationRepository.save(application);
+    }
+
+    public List<Application> getApplicationsByUserId(Long userId){
+        return applicationRepository.findByUserId(userId);
+    }
+
+    public List<Application> getApplicationsByJobPostingId(Long jobPostingId){
+        return applicationRepository.findByJobPostingId(jobPostingId);
     }
 }

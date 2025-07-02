@@ -34,4 +34,6 @@ public class JobPostingController {
         JobPosting saved = jobPostingService.createJobPosting(request);
         return ResponseEntity.ok(saved);
     }
+
+
 }
